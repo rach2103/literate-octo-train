@@ -15,34 +15,24 @@ Dataset:https://www.kaggle.com/datasets/uwrfkaggler/ravdess-emotional-speech-aud
 
 LIBRARIES to look out for:
 
-* 1.resampy: A library for efficient signal resampling.
-* 2.librosa: A library for audio analysis, providing tools for feature extraction from audio signals.
-
-3.soundfile: A library for reading and writing sound files.
-
-4.glob: A standard Python library for finding files and directories using pattern matching.
-
-5.pickle: A standard Python library for serializing and deserializing Python object structures.
-
-6.sklearn (scikit-learn): A comprehensive library for machine learning, used here for model selection, classification, and evaluation metrics.
-
-7.sklearn.model_selection.train_test_split: A function for splitting data into training and testing sets.
-
-8.sklearn.neural_network.MLPClassifier: An implementation of a Multi-layer Perceptron classifier.
-
-9.sklearn.metrics: A module containing various model evaluation metrics.
-
-10.sklearn.metrics.accuracy_score: A function to calculate the accuracy of a classification model.
-
-11.sklearn.metrics.classification_report: A function to generate a text report showing the main classification metrics.
-
-12.sklearn.metrics.confusion_matrix: A function to compute a confusion matrix to evaluate the accuracy of a classification.
-13.sklearn.preprocessing.StandardScaler: A utility to standardize features by removing the mean and scaling to unit variance. 
+* resampy: A library for efficient signal resampling.
+* librosa: A library for audio analysis, providing tools for feature extraction from audio signals.
+* soundfile: A library for reading and writing sound files.
+* glob: A standard Python library for finding files and directories using pattern matching.
+* pickle: A standard Python library for serializing and deserializing Python object structures.
+* sklearn (scikit-learn): A comprehensive library for machine learning, used here for model selection, classification, and evaluation metrics.
+* sklearn.model_selection.train_test_split: A function for splitting data into training and testing sets.
+* sklearn.neural_network.MLPClassifier: An implementation of a Multi-layer Perceptron classifier.
+* sklearn.metrics: A module containing various model evaluation metrics.
+* sklearn.metrics.accuracy_score: A function to calculate the accuracy of a classification model.
+* sklearn.metrics.classification_report: A function to generate a text report showing the main classification metrics.
+* sklearn.metrics.confusion_matrix: A function to compute a confusion matrix to evaluate the accuracy of a classification.
+* sklearn.preprocessing.StandardScaler: A utility to standardize features by removing the mean and scaling to unit variance. 
 #toimportdataset
-1.kagglehub: A library for interacting with Kaggle Datasets and Models, used here to download the dataset.
-#forvisualtion
-1.matplotlib.pyplot: A plotting library used for creating visualizations like the confusion matrix and bar plots.
-2.seaborn: A statistical data visualization library based on Matplotlib, used for creating enhanced plots like heatmaps for the confusion matrix and bar plots.
-3.pandas: A library for data manipulation and analysis, used here for creating a DataFrame from emotion counts for plotting.
+  * kagglehub: A library for interacting with Kaggle Datasets and Models, used here to download the dataset.
+#forvisualization
+* matplotlib.pyplot: A plotting library used for creating visualizations like the confusion matrix and bar plots.
+* seaborn: A statistical data visualization library based on Matplotlib, used for creating enhanced plots like heatmaps for the confusion matrix and bar plots.
+* pandas: A library for data manipulation and analysis, used here for creating a DataFrame from emotion counts for plotting.
 #confusionmatrix
-1.collections.Counter: A dictionary subclass for counting hashable objects, used here to count the occurrences of each predicted emotion.
+  * collections.Counter: A dictionary subclass for counting hashable objects, used here to count the occurrences of each predicted emotion.
