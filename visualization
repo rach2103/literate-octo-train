@@ -1,0 +1,34 @@
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.metrics import confusion_matrix
+
+# Function to plot confusion matrix
+def plot_confusion_matrix(y_true, y_pred, classes, title='Confusion matrix', cmap=plt.cm.Blues):
+    cm = confusion_matrix(y_true, y_pred)
+    plt.figure(figsize=(8, 6))
+    sns.heatmap(cm, annot=True, fmt='d', cmap=cmap, xticklabels=classes, yticklabels=classes)
+    plt.title(title)
+    plt.xlabel('Predicted label')
+    plt.ylabel('True label')
+    plt.show()
+
+# Plot confusion matrix
+plot_confusion_matrix(y_test_, predictions_, classes=observed_emotions_, title='Confusion Matrix')
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+from collections import Counter
+
+# Function to plot distribution of predicted emotions
+def plot_emotion_distribution(y_labels, title='Distribution of Predicted Emotions'):
+    plt.figure(figsize=(8, 6))
+    emotion_counts = Counter(y_labels)
+    emotion_df = pd.DataFrame({'Emotion': list(emotion_counts.keys()), 'Count': list(emotion_counts.values())})
+    sns.barplot(x='Emotion', y='Count', data=emotion_df, order=observed_emotions_)
+    plt.title(title)
+    plt.xlabel('Emotions')
+    plt.ylabel('Count')
+    plt.show()
+
+# Plot distribution of predicted emotions
+plot_emotion_distribution(predictions_, title='Distribution of Predicted Emotions')
