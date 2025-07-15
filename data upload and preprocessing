@@ -1,0 +1,36 @@
+emotions_ = {
+  '01':'neutral',
+  '02':'calm',
+  '03':'happy',
+  '04':'sad',
+  '05':'angry',
+  '06':'fearful',
+  '07':'disgust',
+  '08':'surprised' }
+observed_emotions_ = ['calm', 'happy', 'fearful', 'disgust']
+def load_data(dataset_path, test_size=0.2):
+    x_, y_ = [], []
+    for actor_dir in glob.glob(os.path.join(dataset_path, "Actor_*")):
+        for file_ in glob.glob(os.path.join(actor_dir, "*.wav")):
+            file_name_ = os.path.basename(file_)
+            emotion_ = emotions_[file_name_.split("-")[2]]
+            if emotion_ not in observed_emotions_:
+                continue
+            # Use the extract_feature function defined in cell p_JdfTP_5OEJ
+            feature_ = extract_feature(file_)
+            x_.append(feature_)
+            y_.append(emotion_)
+    return train_test_split(np.array(x_), y_, test_size=test_size, random_state=101)
+def extract_feature(file_name_, mfcc=True, chroma=True, mel=True):
+    X_, sample_rate_ = librosa.load(file_name_, res_type='kaiser_fast')
+    result_ = np.array([])
+    if mfcc:
+        mfccs_ = np.mean(librosa.feature.mfcc(y=X_, sr=sample_rate_, n_mfcc=40).T, axis=0)
+        result_ = np.hstack((result_, mfccs_))
+    if chroma:
+        chroma_ = np.mean(librosa.feature.chroma_stft(y=X_, sr=sample_rate_).T, axis=0)
+        result_ = np.hstack((result_, chroma_))
+    if mel:
+        mel_ = np.mean(librosa.feature.melspectrogram(y=X_, sr=sample_rate_).T, axis=0)
+        result_ = np.hstack((result_, mel_))
+    return result_
