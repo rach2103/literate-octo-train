@@ -4,7 +4,7 @@ Speech Emotion Recognition (SER) is a multidisciplinary domain bridging human-co
 
 This project focuses on advanced audio signal processing and machine learning for robust, automated classification of emotional states from speech. Utilizing datasets like RAVDESS, the objective is to develop a model demonstrating high emotion classification accuracy and practical real-world utility. This work aims to advance affective computing, thereby enhancing human-computer interaction through nuanced speech emotion decoding.
 
-installation of resampy lies in converting signals from one sampling rate to another while maintaining signal integrity.
+The installation of the resampy involves converting signals from one sampling rate to another while maintaining signal integrity.
 <img width="799" height="56" alt="image" src="https://github.com/user-attachments/assets/a87e7e64-eb34-48ff-8675-82587cf1c507" />
 
 
