@@ -1,0 +1,33 @@
+import librosa
+import soundfile
+import os, glob, pickle
+import numpy as np
+from sklearn.model_selection import train_test_split
+from sklearn.neural_network import MLPClassifier
+from sklearn.metrics import accuracy_score
+from sklearn.preprocessing import StandardScaler
+# Function to extract features with additional preprocessing
+def extract_feature(file_name, mfcc=True, chroma=True, mel=True, delta_mfcc=True, delta2_mfcc=True):
+    with soundfile.SoundFile(file_name) as sound_file:
+        X = sound_file.read(dtype="float32")
+        sample_rate = sound_file.samplerate
+        if chroma:
+            stft = np.abs(librosa.stft(X))
+        result = np.array([])
+        if mfcc:
+            mfccs = librosa.feature.mfcc(y=X, sr=sample_rate, n_mfcc=40)
+            if delta_mfcc:
+                delta_mfccs = librosa.feature.delta(mfccs)
+                if delta2_mfcc:
+                    delta2_mfccs = librosa.feature.delta(mfccs, order=2)
+                    mfccs = np.concatenate((mfccs, delta_mfccs, delta2_mfccs))
+                else:
+                    mfccs = np.concatenate((mfccs, delta_mfccs))
+            result = np.mean(mfccs, axis=1)
+        if chroma:
+            chroma = np.mean(librosa.feature.chroma_stft(S=stft, sr=sample_rate), axis=1)
+            result = np.hstack((result, chroma))
+        if mel:
+            mel = np.mean(librosa.feature.melspectrogram(X, sr=sample_rate), axis=1)
+            result = np.hstack((result, mel))
+    return result
