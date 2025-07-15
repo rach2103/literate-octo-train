@@ -1,0 +1,15 @@
+from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
+from sklearn.model_selection import train_test_split
+from sklearn.neural_network import MLPClassifier
+import numpy as np
+
+X_train_, X_test_, y_train_, y_test_ = load_data(path, test_size=0.25)
+print((X_train_.shape[0], X_test_.shape[0]))
+print(f'Features extracted: {X_train_.shape[1]}')
+model_ = MLPClassifier(alpha=0.01, batch_size=256, epsilon=1e-08,
+                      hidden_layer_sizes=(300,), learning_rate='adaptive', max_iter=500)
+model_.fit(X_train_,y_train_)
+predictions_ = model_.predict(X_test_)
+accuracy_ = accuracy_score(y_test_, predictions_)
+print("Accuracy: {:.2f}%".format(accuracy_*100))
+print(classification_report(y_test_,predictions_))
