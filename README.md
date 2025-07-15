@@ -14,14 +14,11 @@ Dataset:https://www.kaggle.com/datasets/uwrfkaggler/ravdess-emotional-speech-aud
 
 
 LIBRARIES to look out for:
-1.resampy: A library for efficient signal resampling.
-
-2.librosa: A library for audio analysis, providing tools for feature extraction from audio signals.
-
-3.soundfile: A library for reading and writing sound files.
-
-4.glob: A standard Python library for finding files and directories using pattern matching.
-5.pickle: A standard Python library for serializing and deserializing Python object structures.
+-1.resampy: A library for efficient signal resampling.
+-2.librosa: A library for audio analysis, providing tools for feature extraction from audio signals.
+-3.soundfile: A library for reading and writing sound files.
+-4.glob: A standard Python library for finding files and directories using pattern matching.
+-5.pickle: A standard Python library for serializing and deserializing Python object structures.
 6.sklearn (scikit-learn): A comprehensive library for machine learning, used here for model selection, classification, and evaluation metrics.
 7.sklearn.model_selection.train_test_split: A function for splitting data into training and testing sets.
 8.sklearn.neural_network.MLPClassifier: An implementation of a Multi-layer Perceptron classifier.
